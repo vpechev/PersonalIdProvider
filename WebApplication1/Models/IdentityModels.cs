@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Xml.Linq;
 
 namespace WebApplication1.Models
 {
@@ -18,16 +19,18 @@ namespace WebApplication1.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class PersonalIdContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
+        public DbSet<MyXDocument> Documents { get; set; }
+
+        public PersonalIdContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
-        public static ApplicationDbContext Create()
+        public static PersonalIdContext Create()
         {
-            return new ApplicationDbContext();
+            return new PersonalIdContext();
         }
     }
 }

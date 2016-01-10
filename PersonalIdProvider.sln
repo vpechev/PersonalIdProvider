@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{8C61C4ED-BCA9-4307-A223-C8AC45483D65}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Server.Database", "Server.Database\Server.Database.sqlproj", "{F6C83153-DCF0-41BF-B0C3-F3B6D82C5550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{8C61C4ED-BCA9-4307-A223-C8AC45483D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C61C4ED-BCA9-4307-A223-C8AC45483D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C61C4ED-BCA9-4307-A223-C8AC45483D65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C83153-DCF0-41BF-B0C3-F3B6D82C5550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C83153-DCF0-41BF-B0C3-F3B6D82C5550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C83153-DCF0-41BF-B0C3-F3B6D82C5550}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F6C83153-DCF0-41BF-B0C3-F3B6D82C5550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C83153-DCF0-41BF-B0C3-F3B6D82C5550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C83153-DCF0-41BF-B0C3-F3B6D82C5550}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

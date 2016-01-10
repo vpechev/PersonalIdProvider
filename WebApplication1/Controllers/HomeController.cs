@@ -3,37 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Models;
 using WebApplication1.Models.Interfaces;
+using WebApplication1.Repositories;
+using WebApplication1.Utilities;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
         //Get All
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var repo = new DocumentRepository();
+            var results = repo.GetAll();
+            return View(results);
         }
 
-        public ActionResult GetById(int id)
+        [HttpGet]
+        public ActionResult Details(int id)
         {
-            return View();
+            var repo = new DocumentRepository();
+            var entity = repo.GetById(id);
+            return View(entity);
         }
 
-        public ActionResult Insert(DocumentEntity entity)
+        public ActionResult RedirectToAdd()
         {
-            return null;
+            return View("Add");
         }
 
-        public ActionResult Update(DocumentEntity entity)
+        [HttpPost]
+        public ActionResult Create(PersonalDocument entity)
         {
-            return null;
+            var repo = new DocumentRepository();
+            repo.Add(entity);
+            return View("index");
+        }
+
+        [HttpPut]
+        public ActionResult Update(PersonalDocument entity)
+        {
+            var repo = new DocumentRepository();
+            repo.Update(entity);
+            return View("index");
         }
 
         public ActionResult Delete(int id)
         {
-            return null;
+            var repo = new DocumentRepository();
+            repo.Delete(id);
+            return View("index");
         }
+
+
+
 
         public ActionResult About()
         {

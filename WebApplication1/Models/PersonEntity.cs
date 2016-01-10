@@ -6,15 +6,15 @@ using WebApplication1.Models.Interfaces;
 
 namespace WebApplication1.Models
 {
-    public class PersonEntity : Entity, IPersonEntity
+    public class PersonEntity : Entity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool IsMale { get; set; }
         public string PersonalNumber { get; set; }
         public int Age { get; set; }
-        DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         public int Height { get; set; }
-        Address Adress {` get; set; }
+        public Address Address { get; set; }
     }
 }

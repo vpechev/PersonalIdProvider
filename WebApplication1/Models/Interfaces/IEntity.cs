@@ -5,8 +5,8 @@ using System.Web;
 
 namespace WebApplication1.Models.Interfaces
 {
-    public class IEntity
+    public interface IEntity
     {
-        public string Id { get; set; }
+        int Id { get; set; }
     }
 }

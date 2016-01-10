@@ -1,0 +1,82 @@
+﻿@model  WebApplication1.Models.PersonalDocument
+@{
+    ViewBag.Title = "CreateUser";
+}
+
+@using(Html.BeginForm("Create", "Home", FormMethod.Post, new { Id = "create-personal-doc" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <h4>Personal information</h4>
+        @Html.LabelFor(m => m.Person.FirstName)
+        @Html.TextBoxFor(m => m.Person.FirstName, new { id = "first-name" })   
+        @Html.LabelFor(m => m.Person.LastName)
+        @Html.TextBoxFor(m => m.Person.LastName, new { id = "last-name" })
+    </div>
+    <div class="row">
+        <div class="col col-lg-4">
+            <strong>@Html.LabelFor(m => m.Person.PersonalNumber):</strong>
+            <i>@Html.TextBoxFor(m => m.Person.PersonalNumber, new { id = "personal-number" })</i>
+        </div>
+        <div class="col col-lg-4">
+            <strong>@Html.LabelFor(m => m.Person.BirthDate):</strong>
+            <i>@Html.TextBoxFor(m => m.Person.BirthDate, new { id = "birth-date", type = "date" })</i>
+        </div>
+        <div class="col col-lg-4">
+            <strong>@Html.LabelFor(m => m.Person.Age):</strong>
+            <i> @Html.TextBoxFor(m => m.Person.Age, new { id = "age", type = "number", min = "14", max = "111" }) </i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-4">
+            <strong>Sex:</strong>
+            Male: @Html.RadioButtonFor(m => m.Person.IsMale, "Yes", true)
+            Female: @Html.RadioButtonFor(m => m.Person.IsMale, "No")
+        </div>
+        <div class="col col-lg-4">
+            <strong>@Html.LabelFor(m => m.Person.Height):</strong> <i>
+            @Html.TextBoxFor(m => m.Person.Height, new { id = "height", type = "number", min = "80", max = "250" })
+            </i>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <h4>Address</h4>
+        <div class="col col-lg-3">
+            <strong>@Html.LabelFor(m => m.Person.Address.Country)</strong>
+            @Html.TextBoxFor(m => m.Person.Address.Country, new { id = "country" })
+        </div>
+        <div class="col col-lg-3">
+            <strong>@Html.LabelFor(m => m.Person.Address.Town)</strong>
+            @Html.TextBoxFor(m => m.Person.Address.Town, new { id = "town" })
+        </div>
+        <div class="col col-lg-6">
+            <strong>@Html.LabelFor(m => m.Person.Address.StreetName)</strong>
+            @Html.TextBoxFor(m => m.Person.Address.StreetName, new { id = "street-name" })
+
+            <strong>@Html.LabelFor(m => m.Person.Address.StreetNumber)</strong>
+            @Html.TextBoxFor(m => m.Person.Address.StreetNumber, new { id = "street-number", type = "number" })
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <h4>Personal Document</h4>
+        <div class="col col-lg-4">
+            <strong>@Html.LabelFor(m => m.Document.DocumentNumber):</strong>
+            @Html.TextBoxFor(m => m.Document.DocumentNumber, new { id = "document-number" })
+        </div>
+        <div class="col col-lg-4">
+            <strong>@Html.LabelFor(m => m.Document.DateOfDocumentIssue):</strong>
+            @Html.TextBoxFor(m => m.Document.DateOfDocumentIssue, new { id = "issue-date", type = "date" })
+        </div>
+        <div class="col col-lg-4">
+            <strong>@Html.LabelFor(m => m.Document.DateOfDocumentExpiration):</strong>
+            @Html.TextBoxFor(m => m.Document.DateOfDocumentExpiration, new { id = "expiration-date", type = "date" })
+        </div>
+    </div>
+
+    <div>
+        <input class=" btn btn-success" type="submit" value="Create!" />
+    </div>
+}
+

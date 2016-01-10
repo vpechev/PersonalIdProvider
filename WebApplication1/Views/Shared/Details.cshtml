@@ -1,0 +1,38 @@
+﻿@model WebApplication1.Models.PersonalDocument
+@{
+    ViewBag.Title = "Details";
+}
+
+<hr />
+<div class="row">
+    <h4>Personal information</h4>
+    <div class="col col-lg-2"><strong>Name:</strong></div>
+    <div class="col col-lg-10"><i>@Model.Person.FirstName @Model.Person.LastName</i></div>
+</div>
+<div class="row">
+    <div class="col col-lg-4"><strong>Personal Number:</strong> <i>@Model.Person.PersonalNumber</i></div>
+    <div class="col col-lg-4"><strong>Birth date:</strong> <i>@Model.Person.BirthDate</i></div>
+    <div class="col col-lg-4"><strong>Age:</strong> <i>@Model.Person.Age</i></div>
+</div>
+<div class="row">
+    <div class="col col-lg-4"><strong>Sex:</strong>
+        @if(Model.Person.IsMale){ <span><i>Male</i></span> } else { <span><i>Female</i></span>}</div>
+    <div class="col col-lg-4"><strong>Height:</strong> <i>@Model.Person.Height</i></div>
+</div>
+<hr />
+<div class="row">
+    <h4>Address</h4>
+    <div class="col col-lg-4"><strong>Country:</strong> <i>@Model.Person.Address.Country</i> </div>
+    <div class="col col-lg-4"><strong>Town:</strong> <i>@Model.Person.Address.Town</i> </div>
+    <div class="col col-lg-4"><strong>Address:</strong> <i>@Model.Person.Address.StreetName @Model.Person.Address.StreetNumber</i></div>
+</div>
+<hr />
+<div class="row">
+    <h4>Personal Document</h4>
+    <div class="col col-lg-4"><strong>Personal Document Number:</strong> <i>@Model.Document.DocumentNumber</i></div>
+    <div class="col col-lg-4"><strong>Issue Date:</strong> <i>@Model.Document.DateOfDocumentIssue</i></div>
+    <div class="col col-lg-4"><strong>Expiration Date:</strong> <i>@Model.Document.DateOfDocumentExpiration</i></div>
+</div>
+
+
+
