@@ -44,7 +44,7 @@ namespace WebApplication1.Utilities
             return entity;
         }
 
-        public static MyXDocument ConvertPersonalDocumentEntityToXml(PersonalDocument entity)
+        public static XDocument ConvertPersonalDocumentEntityToXml(PersonalDocument entity)
         {
             XDocument xmlDocumentEntity = new XDocument
                                           (
@@ -72,7 +72,7 @@ namespace WebApplication1.Utilities
                                                     )
                                             );
 
-            return new MyXDocument() { XmlDocument = xmlDocumentEntity.ToString() };
+            return xmlDocumentEntity;
         }
 
         public static PersonalDocument ParseXmlToPersonalDocument(String xmlString)
@@ -109,12 +109,15 @@ namespace WebApplication1.Utilities
             return entity;
         }
 
-        public static void WriteEntityToXmlFile(PersonalDocument entity, string fileName = "personalDocument")
+        public static void WriteEntityToXmlFile(PersonalDocument entity, string fileName = null)
         {
+            if (fileName == null)
+                fileName = "personalDocument" + entity.Id;
+
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.IndentChars = "\t";
-
+            
             using (XmlWriter writer = XmlWriter.Create("G:\\" + fileName + ".xml", settings))
             {
                 writer.WriteStartDocument();
@@ -166,6 +169,27 @@ namespace WebApplication1.Utilities
             return !errors;
         }
 
+        public static bool IsXmlDocValid(XDocument entity)
+        {
+            XmlSchemaSet schemas = new XmlSchemaSet();
+            schemas.Add("", @"G:\Xml\personalDocument.xsd");
+
+            Console.WriteLine("Attempting to validate");
+            
+            bool errors = false;
+            entity.Validate(schemas, (o, e) =>
+            {
+                Console.WriteLine("{0}", e.Message);
+                errors = true;
+            });
+            return !errors;
+        }
+
+        public static void ValidateXmlEntity(XDocument xmlEntity)
+        {
+            if (!Utility.IsXmlDocValid(xmlEntity))
+                throw new ArgumentException();
+        }
 
     }
 }

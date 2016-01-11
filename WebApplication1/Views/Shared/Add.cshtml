@@ -3,15 +3,19 @@
     ViewBag.Title = "CreateUser";
 }
 
-@using(Html.BeginForm("Create", "Home", FormMethod.Post, new { Id = "create-personal-doc" }))
+@using(Html.BeginForm(Model!=null && Model.Id == 0 ? "Create" :"Update", "Home", FormMethod.Post, new { Id = "create-personal-doc" }))
 {
     @Html.AntiForgeryToken()
     <div class="row">
         <h4>Personal information</h4>
-        @Html.LabelFor(m => m.Person.FirstName)
-        @Html.TextBoxFor(m => m.Person.FirstName, new { id = "first-name" })   
-        @Html.LabelFor(m => m.Person.LastName)
-        @Html.TextBoxFor(m => m.Person.LastName, new { id = "last-name" })
+        <div class="col-lg-3">
+            @Html.LabelFor(m => m.Person.FirstName)
+            @Html.TextBoxFor(m => m.Person.FirstName, new { id = "first-name" })
+        </div>
+        <div class="col-lg-3">
+            @Html.LabelFor(m => m.Person.LastName)
+            @Html.TextBoxFor(m => m.Person.LastName, new { id = "last-name" })
+        </div>
     </div>
     <div class="row">
         <div class="col col-lg-4">
@@ -20,7 +24,7 @@
         </div>
         <div class="col col-lg-4">
             <strong>@Html.LabelFor(m => m.Person.BirthDate):</strong>
-            <i>@Html.TextBoxFor(m => m.Person.BirthDate, new { id = "birth-date", type = "date" })</i>
+            <i>@Html.EditorFor(m => m.Person.BirthDate, new { id = "birth-date" })</i>
         </div>
         <div class="col col-lg-4">
             <strong>@Html.LabelFor(m => m.Person.Age):</strong>
@@ -74,9 +78,25 @@
             @Html.TextBoxFor(m => m.Document.DateOfDocumentExpiration, new { id = "expiration-date", type = "date" })
         </div>
     </div>
-
-    <div>
-        <input class=" btn btn-success" type="submit" value="Create!" />
+    <div class="row">
+        @if (ViewBag.ErrorMsg != null)
+        {
+            <div class="text-danger"> <strong><i>@ViewBag.ErrorMsg</i></strong> </div>
+        }
+        
+        <div>
+            @if (Model.Id > 0)
+            {
+                <div class="col col-lg-1"><input class=" btn btn-success" type="submit" value="Update!" /></div>
+                @Html.ActionLink("Cancel", "Details", "Home", new { id = @Model.Id }, new { @class = "modal-box btn btn-primary" });
+            }
+            else
+            {
+                <div class="col col-lg-1"><input class=" btn btn-success" type="submit" value="Create!" /></div>
+                @Html.ActionLink("Cancel", "Index", "Home", new { }, new { @class = "modal-box btn btn-primary" });
+            }
+        </div>
     </div>
+    <input id="id" type="hidden" value="@Model.Id" />
 }
 

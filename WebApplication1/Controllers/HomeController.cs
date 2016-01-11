@@ -31,30 +31,53 @@ namespace WebApplication1.Controllers
 
         public ActionResult RedirectToAdd()
         {
-            return View("Add");
+            return View("Add", new PersonalDocument());
         }
 
         [HttpPost]
         public ActionResult Create(PersonalDocument entity)
         {
-            var repo = new DocumentRepository();
-            repo.Add(entity);
-            return View("index");
+            try
+            {
+                var repo = new DocumentRepository();
+                repo.Add(entity);
+                return this.RedirectToAction("Index", "Home");
+            }
+            catch (ArgumentException e)
+            {
+                ViewBag.ErrorMsg = "You have enteres some invalid data!";
+                return this.View("Add", entity);
+            }
         }
 
-        [HttpPut]
-        public ActionResult Update(PersonalDocument entity)
+        public ActionResult RedirectToUpdate(int id)
         {
             var repo = new DocumentRepository();
-            repo.Update(entity);
-            return View("index");
+            var entity = repo.GetById(id);
+            return View("Add", entity);
+        }
+
+        [HttpPost]
+        public ActionResult Update(PersonalDocument entity)
+        {
+            try
+            {
+                var repo = new DocumentRepository();
+                repo.Update(entity);
+                return View("index");
+            }
+            catch (ArgumentException e)
+            {
+                ViewBag.ErrorMsg = "You have enteres some invalid data!";
+                return this.View("Add", entity);
+            }
         }
 
         public ActionResult Delete(int id)
         {
             var repo = new DocumentRepository();
             repo.Delete(id);
-            return View("index");
+            return this.RedirectToAction("Index", "Home");
         }
 
 

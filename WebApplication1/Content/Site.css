@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.row{
+    margin: 10px;
+}
+
+
+#street-number{
+    width: 50px;
+}
