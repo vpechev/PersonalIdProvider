@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<personalDocument>
+  <person>
+    <FirstName>ivan</FirstName>
+    <LastName>ivanov</LastName>
+    <IsMale>True</IsMale>
+    <PersonalNumber>11231313131231</PersonalNumber>
+    <Age>20</Age>
+    <BirthDate>23-Feb-94 12:00:00 AM</BirthDate>
+    <Height>213</Height>
+    <Address>
+      <Country>Bulgaria</Country>
+      <Town>Lovech</Town>
+      <StreetName>Street Bul</StreetName>
+      <StreetNumber>21</StreetNumber>
+    </Address>
+  </person>
+  <Document>
+    <documentNumber>89734593753</documentNumber>
+    <DateOfIssue>21-Feb-16 12:00:00 AM</DateOfIssue>
+    <DateOfExpiration>21-Feb-20 12:00:00 AM</DateOfExpiration>
+  </Document>
+</personalDocument>

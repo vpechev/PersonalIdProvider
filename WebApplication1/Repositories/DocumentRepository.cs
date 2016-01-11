@@ -19,6 +19,9 @@ namespace WebApplication1.Repositories
             string secretPhrase = GetSecretPhrase();
             var e = new MyXDocument(entity, secretPhrase);
 
+            //write it to file
+            Utility.WriteEntityToXmlFile(entity);
+
             using (var db = new PersonalIdContext())
             {
                 db.Documents.Add(e);

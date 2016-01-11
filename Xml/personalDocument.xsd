@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+    elementFormDefault="qualified"
+    xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://hristo.bg"
+>
+    <!--targetNamespace ="http://hristo.bg"-->
+  <xs:element name="personalDocument">
+    <xs:complexType>
+      <xs:sequence>
+    <xs:element name="person">
+      <xs:complexType>
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:string"></xs:element>
+            <xs:element name="lastName" type="xs:string"></xs:element>
+            <xs:element name="isMale" type="xs:boolean"></xs:element>
+            <xs:element name="personalNumber" type="xs:string"> 
+              <!--<xs:pattern value="[0-9]{9}" />--> 
+            </xs:element>
+            <xs:element name="age">
+              <xs:simpleType>
+                <xs:restriction base ="xs:integer">
+                  <xs:minInclusive value="14"/>
+                  <xs:maxInclusive value="111"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="birthDate"></xs:element>
+            <xs:element name="height">
+              <xs:simpleType>
+                <xs:restriction base ="xs:integer">
+                  <xs:minInclusive value="140"/>
+                  <xs:maxInclusive value="230"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="address">
+              <xs:complexType>
+                <xs:sequence>
+                <xs:element name="country" type="xs:string"></xs:element>
+                <xs:element name="town" type="xs:string"></xs:element>
+                <xs:element name="streetName" type="xs:string"></xs:element>
+                <xs:element name="streetNumber" type="xs:integer"></xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+   <xs:element name="document">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="documentNumber"></xs:element>
+          <xs:element name="dateOfIssue"></xs:element>
+          <xs:element name="dateOfExpiration"></xs:element>
+        </xs:sequence>
+      </xs:complexType>    
+    </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
