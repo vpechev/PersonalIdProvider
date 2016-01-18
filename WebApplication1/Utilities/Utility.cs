@@ -118,7 +118,7 @@ namespace WebApplication1.Utilities
             settings.Indent = true;
             settings.IndentChars = "\t";
 
-            using (XmlWriter writer = XmlWriter.Create("~/App_Data/Xml/" + fileName + ".xml", settings))
+            using (XmlWriter writer = XmlWriter.Create(System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/Xml/" + fileName + ".xml"), settings))
             {
                 writer.WriteStartDocument();
                 writer.WriteStartElement("personalDocument");
@@ -156,7 +156,7 @@ namespace WebApplication1.Utilities
         public static bool IsXmlDocValid(string filePath)
         {
             XmlSchemaSet schemas = new XmlSchemaSet();
-            schemas.Add("", @"G:\Xml\personalDocument.xsd");
+            schemas.Add("", System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/Xml/personalDocument.xsd"));
 
             Console.WriteLine("Attempting to validate");
             XDocument custOrdDoc = XDocument.Load(filePath);
