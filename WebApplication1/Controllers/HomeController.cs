@@ -48,6 +48,11 @@ namespace WebApplication1.Controllers
                 ViewBag.ErrorMsg = "You have enteres some invalid data! \n" + e.StackTrace;
                 return this.View("Add", entity);
             }
+            catch (Exception e)
+            {
+                ViewBag.ErrorMsg = "You have enteres some invalid data! \n" + e.StackTrace;
+                return this.View("Add", entity);
+            }
         }
 
         public ActionResult RedirectToUpdate(int id)
@@ -68,7 +73,8 @@ namespace WebApplication1.Controllers
             }
             catch (ArgumentException e)
             {
-                ViewBag.ErrorMsg = "You have enteres some invalid data!";
+                //ViewBag.ErrorMsg = "You have enteres some invalid data!";
+                ViewBag.ErrorMsg = "You have enteres some invalid data! \n" + e.StackTrace;
                 return this.View("Add", entity);
             }
         }
