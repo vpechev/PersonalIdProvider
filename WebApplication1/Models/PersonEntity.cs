@@ -16,7 +16,7 @@ namespace WebApplication1.Models
         public string PersonalNumber { get; set; }
         public int Age { get; set; }
 
-        [DisplayName("Joining date")]
+        [DisplayName("Birthdate")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }

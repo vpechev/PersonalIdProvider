@@ -117,8 +117,8 @@ namespace WebApplication1.Utilities
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.IndentChars = "\t";
-            
-            using (XmlWriter writer = XmlWriter.Create("G:\\xmlEntities\\" + fileName + ".xml", settings))
+
+            using (XmlWriter writer = XmlWriter.Create("~/App_Data/Xml/" + fileName + ".xml", settings))
             {
                 writer.WriteStartDocument();
                 writer.WriteStartElement("personalDocument");
