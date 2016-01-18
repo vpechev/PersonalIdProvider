@@ -20,7 +20,7 @@ namespace WebApplication1.Repositories
             var e = new MyXDocument(entity, secretPhrase);
 
             //write it to file
-            Utility.WriteEntityToXmlFile(entity);
+            //Utility.WriteEntityToXmlFile(entity);
 
             using (var db = new PersonalIdContext())
             {
