@@ -194,6 +194,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="App_Data\Xml\personalDocument.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
