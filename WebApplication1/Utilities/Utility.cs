@@ -111,45 +111,52 @@ namespace WebApplication1.Utilities
 
         public static void WriteEntityToXmlFile(PersonalDocument entity, string fileName = null)
         {
-            if (fileName == null)
-                fileName = "personalDocument" + entity.Id;
-
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.IndentChars = "\t";
-
-            using (XmlWriter writer = XmlWriter.Create(System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/Xml/" + fileName + ".xml"), settings))
+            try
             {
-                writer.WriteStartDocument();
-                writer.WriteStartElement("personalDocument");
+                if (fileName == null)
+                    fileName = "personalDocument" + entity.Id;
 
-                writer.WriteStartElement("person");
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.Indent = true;
+                settings.IndentChars = "\t";
 
-                writer.WriteElementString("firstName", entity.Person.FirstName);
-                writer.WriteElementString("lastName", entity.Person.LastName);
-                writer.WriteElementString("isMale", entity.Person.IsMale.ToString());
-                writer.WriteElementString("personalNumber", entity.Person.PersonalNumber.ToString());
-                writer.WriteElementString("age", entity.Person.Age.ToString());
-                writer.WriteElementString("birthDate", entity.Person.BirthDate.ToString());
-                writer.WriteElementString("height", entity.Person.Height.ToString());
+                using (XmlWriter writer = XmlWriter.Create(System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/Xml/" + fileName + ".xml"), settings))
+                {
+                    writer.WriteStartDocument();
+                    writer.WriteStartElement("personalDocument");
 
-                writer.WriteStartElement("address");
-                writer.WriteElementString("country", entity.Person.Address.Country);
-                writer.WriteElementString("town", entity.Person.Address.Town);
-                writer.WriteElementString("streetName", entity.Person.Address.StreetName);
-                writer.WriteElementString("streetNumber", entity.Person.Address.StreetNumber.ToString());
-                writer.WriteEndElement();
+                    writer.WriteStartElement("person");
 
-                writer.WriteEndElement();
+                    writer.WriteElementString("firstName", entity.Person.FirstName);
+                    writer.WriteElementString("lastName", entity.Person.LastName);
+                    writer.WriteElementString("isMale", entity.Person.IsMale.ToString());
+                    writer.WriteElementString("personalNumber", entity.Person.PersonalNumber.ToString());
+                    writer.WriteElementString("age", entity.Person.Age.ToString());
+                    writer.WriteElementString("birthDate", entity.Person.BirthDate.ToString());
+                    writer.WriteElementString("height", entity.Person.Height.ToString());
 
-                writer.WriteStartElement("document");
-                writer.WriteElementString("documentNumber", entity.Document.DocumentNumber.ToString());
-                writer.WriteElementString("dateOfIssue", entity.Document.DateOfDocumentIssue.ToString());
-                writer.WriteElementString("dateOfExpiration", entity.Document.DateOfDocumentExpiration.ToString());
-                writer.WriteEndElement();
+                    writer.WriteStartElement("address");
+                    writer.WriteElementString("country", entity.Person.Address.Country);
+                    writer.WriteElementString("town", entity.Person.Address.Town);
+                    writer.WriteElementString("streetName", entity.Person.Address.StreetName);
+                    writer.WriteElementString("streetNumber", entity.Person.Address.StreetNumber.ToString());
+                    writer.WriteEndElement();
 
-                writer.WriteEndElement();
-                writer.WriteEndDocument();
+                    writer.WriteEndElement();
+
+                    writer.WriteStartElement("document");
+                    writer.WriteElementString("documentNumber", entity.Document.DocumentNumber.ToString());
+                    writer.WriteElementString("dateOfIssue", entity.Document.DateOfDocumentIssue.ToString());
+                    writer.WriteElementString("dateOfExpiration", entity.Document.DateOfDocumentExpiration.ToString());
+                    writer.WriteEndElement();
+
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+                }
+            }
+            catch (Exception e)
+            {
+
             }
         }
 
