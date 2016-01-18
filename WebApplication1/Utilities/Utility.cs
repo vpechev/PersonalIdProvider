@@ -172,7 +172,7 @@ namespace WebApplication1.Utilities
         public static bool IsXmlDocValid(XDocument entity)
         {
             XmlSchemaSet schemas = new XmlSchemaSet();
-            schemas.Add("", @"G:\Xml\personalDocument.xsd");
+            schemas.Add("", System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/Xml/personalDocument.xsd"));
 
             Console.WriteLine("Attempting to validate");
             
