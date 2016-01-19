@@ -1,23 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type='text/xsl' href='xsltSample.xslt'?>
 <personalDocument>
   <person>
-    <FirstName>ivan</FirstName>
-    <LastName>ivanov</LastName>
-    <IsMale>True</IsMale>
-    <PersonalNumber>11231313131231</PersonalNumber>
-    <Age>20</Age>
-    <BirthDate>23-Feb-94 12:00:00 AM</BirthDate>
-    <Height>213</Height>
-    <Address>
-      <Country>Bulgaria</Country>
-      <Town>Lovech</Town>
-      <StreetName>Street Bul</StreetName>
-      <StreetNumber>21</StreetNumber>
-    </Address>
+    <firstName>ivan</firstName>
+    <lastName>ivanov</lastName>
+    <isMale>True</isMale>
+    <personalNumber>11231313131231</personalNumber>
+    <age>20</age>
+    <birthDate>23-Feb-94 12:00:00 AM</birthDate>
+    <height>213</height>
+    <address>
+      <country>Bulgaria</country>
+      <town>Lovech</town>
+      <streetName>Street Bul</streetName>
+      <streetNumber>21</streetNumber>
+    </address>
   </person>
-  <Document>
+  <document>
     <documentNumber>89734593753</documentNumber>
-    <DateOfIssue>21-Feb-16 12:00:00 AM</DateOfIssue>
-    <DateOfExpiration>21-Feb-20 12:00:00 AM</DateOfExpiration>
-  </Document>
+    <dateOfIssue>21-Feb-16 12:00:00 AM</dateOfIssue>
+    <dateOfExpiration>21-Feb-20 12:00:00 AM</dateOfExpiration>
+  </document>
 </personalDocument>

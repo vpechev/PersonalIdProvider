@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<personalDocument>
+	<person>
+		<firstName>Peter</firstName>
+		<lastName>Ivanov</lastName>
+		<isMale>False</isMale>
+		<personalNumber>9210189405</personalNumber>
+		<age>23</age>
+		<birthDate>18-Oct-92 12:00:00 AM</birthDate>
+		<height>165</height>
+		<address>
+			<country>Bulgaria</country>
+			<town>Varna</town>
+			<streetName>Bul. Varna</streetName>
+			<streetNumber>12</streetNumber>
+		</address>
+	</person>
+	<document>
+		<documentNumber>1226486713</documentNumber>
+		<dateOfIssue>18-Jan-16 12:00:00 AM</dateOfIssue>
+		<dateOfExpiration>18-Jan-21 12:00:00 AM</dateOfExpiration>
+	</document>
+</personalDocument>

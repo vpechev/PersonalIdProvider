@@ -120,7 +120,7 @@ namespace WebApplication1.Utilities
                 settings.Indent = true;
                 settings.IndentChars = "\t";
 
-                using (XmlWriter writer = XmlWriter.Create(System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/Xml/" + fileName + ".xml"), settings))
+                using (XmlWriter writer = XmlWriter.Create(System.Web.Hosting.HostingEnvironment.MapPath(@"  /App_Data/Xml/" + fileName + ".xml"), settings))
                 {
                     writer.WriteStartDocument();
                     writer.WriteStartElement("personalDocument");
